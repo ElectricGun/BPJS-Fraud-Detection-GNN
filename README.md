@@ -1,4 +1,4 @@
-# 🧠 GRAFANA: Fraud Graph Analytics with Neo4j + GDS
+# Grafana: Integrasi Graph Database untuk Fraud Detection dengan Graph Neural Networks & Algoritma Louvain
 
 <div align="center">
 
