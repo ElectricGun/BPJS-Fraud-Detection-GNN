@@ -76,85 +76,30 @@
 
 ---
 
-## 🏗️ **Architecture & Pipeline**
+## 🏗️ Architecture & Pipeline
 
-```
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" width="100%">
-.box{fill:#ffffff;stroke:#3a7;stroke-width:2;rx:8;}
-.small{font:14px/1.1 Arial, sans-serif;}
-.title{font:700 18px/1.1 Arial, sans-serif;}
-.emoji{font-size:20px}
-.arrow{fill:none;stroke:#7a7a7a;stroke-width:2;marker-end:url(#arr)}
-</style>
-<defs>
-<marker id="arr" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
-<path d="M0 0 L10 5 L0 10 z" fill="#7a7a7a" />
-</marker>
-</defs>
+```mermaid
+flowchart TD
+    %% Data Ingestion
+    DATA[📄 Raw CSV Data] -->|ETL: load_data.py| NEO4J[(🍃 Neo4j Database)]
 
+    %% Graph Data Science
+    NEO4J -->|Graph Projection| GDS[⚙️ Neo4j GDS Library]
+    GDS -->|Community Detection| LOUVAIN[Louvain Algorithm]
+    GDS -->|Structural Embedding| N2V[Node2Vec]
 
-<!-- Data Ingestion -->
-<rect x="20" y="30" width="210" height="70" class="box"/>
-<text x="30" y="55" class="title">📄 Raw CSV Data</text>
-<text x="30" y="75" class="small">ETL: load_data.py</text>
+    %% AI Modeling
+    subgraph AI_Core [🧠 Hybrid AI Engine]
+        LOUVAIN & N2V -->|Export Features| HYBRID[Hybrid GNN Model]
+        HYBRID -->|GraphSAGE + GAT| EMBED[Node Embeddings]
+        EMBED -->|Ensemble| XGB[XGBoost Classifier]
+    end
 
+    %% Output & Viz
+    XGB -->|Risk Score & Explanation| RESULT[📄 Final Report CSV]
+    RESULT -->|Write Back: update_db.py| NEO4J
+    NEO4J -->|Visual Investigation| BLOOM[🌸 Neo4j Bloom]
 
-<!-- Neo4j -->
-<rect x="270" y="20" width="200" height="100" class="box"/>
-<text x="285" y="55" class="title">🍃 Neo4j Database</text>
-
-
-<!-- GDS -->
-<rect x="520" y="20" width="220" height="100" class="box"/>
-<text x="540" y="55" class="title">⚙️ Neo4j GDS</text>
-<text x="540" y="75" class="small">Projection · Embedding · Detection</text>
-
-
-<!-- AI Core -->
-<rect x="820" y="10" width="260" height="170" class="box"/>
-<text x="840" y="35" class="title">🧠 Hybrid AI Engine</text>
-<text x="840" y="60" class="small">Louvain → Node2Vec → GraphSAGE + GAT</text>
-
-
-<!-- XGBoost / Result -->
-<rect x="550" y="160" width="220" height="90" class="box"/>
-<text x="570" y="190" class="title">XGBoost Classifier</text>
-<text x="570" y="210" class="small">Risk Score & Explanations</text>
-
-
-<rect x="820" y="200" width="220" height="70" class="box"/>
-<text x="840" y="235" class="title">📄 Final Report CSV</text>
-
-
-<!-- Bloom -->
-<rect x="270" y="170" width="200" height="80" class="box"/>
-<text x="285" y="200" class="title">🌸 Neo4j Bloom</text>
-<text x="285" y="220" class="small">Visual Investigation</text>
-
-
-<!-- Arrows -->
-<path class="arrow" d="M230 65 L270 65" />
-<path class="arrow" d="M470 65 L520 65" />
-<path class="arrow" d="M740 65 L820 65" />
-
-
-<path class="arrow" d="M640 160 L640 120 L740 120 L740 130" />
-<path class="arrow" d="M740 205 L740 235 L820 235" />
-
-
-<path class="arrow" d="M470 200 L520 200" />
-<path class="arrow" d="M470 200 L300 200" />
-<path class="arrow" d="M370 200 L270 200" />
-
-
-<!-- Labels near arrows -->
-<text x="125" y="50" class="small">ETL: load_data.py →</text>
-<text x="390" y="40" class="small">Graph Projection →</text>
-<text x="680" y="40" class="small">Export Features →</text>
-
-
-</svg>
-```
 
 # ⚙️ Setup Environment
 
