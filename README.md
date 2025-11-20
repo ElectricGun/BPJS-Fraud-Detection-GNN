@@ -79,7 +79,7 @@
 ## 🏗️ **Architecture & Pipeline**
 
 ```
-mermaid
+```mermaid
 flowchart TD
     %% Data Ingestion
     DATA[📄 Raw CSV Data] -->|ETL: load_data.py| NEO4J[(🍃 Neo4j Database)]
