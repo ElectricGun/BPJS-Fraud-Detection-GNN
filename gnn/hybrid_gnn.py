@@ -46,14 +46,16 @@ def load_data(NODES_PATH):
 nodes_df, edges_df, N = load_data(NODES_PATH=NODES_PATH)
 
 # ---------- 2. PREPARE FEATURES (X) ----------
-exclude_cols = [
-    'community_id', 'node_id', 'mapped_id', 'is_fraud', 'train_mask', 'test_mask', 
-    'fraud_score', 'final_risk_score', 'ai_explanation', 'fraud_reason',
-    'new_gnn_score',  # Hindari membaca hasil prediksi diri sendiri jika ada
+included_cols = [
+    'closeness', 'degree', 
+    'community_density','betweenness','pagerank',
+    'community_size',
+    
+    'tarif_seharusnya','tarif_diklaim'
 ]
 
-def prepare_features(exclude_cols):
-    feature_cols = [c for c in nodes_df.columns if c not in exclude_cols and np.issubdtype(nodes_df[c].dtype, np.number)] # type: ignore
+def prepare_features(included_cols):
+    feature_cols = [c for c in nodes_df.columns if c in included_cols and np.issubdtype(nodes_df[c].dtype, np.number)] # type: ignore
     print(f"Using {len(feature_cols)} Features.")
     print(f"Features: {feature_cols}")
 
@@ -62,7 +64,7 @@ def prepare_features(exclude_cols):
     X_scaled = scaler.fit_transform(X_raw)
     return torch.tensor(X_scaled, dtype=torch.float, device=DEVICE)
 
-x = prepare_features(exclude_cols=exclude_cols)
+x = prepare_features(included_cols=included_cols)
 
 # ---------- 3. PREPARE LABELS (y) ----------
 def prepare_labels():
@@ -209,9 +211,17 @@ with torch.no_grad():
     final_logits = model(x, edge_index)
     final_probs = torch.sigmoid(final_logits).cpu().numpy()
 
-nodes_df['new_gnn_score'] = final_probs
+nodes_df['fraud_certainty'] = final_probs
 
 # Pastikan folder output ada
 os.makedirs("output", exist_ok=True)
-nodes_df.to_csv(env.OUTPUT_FILE, index=False)
-print(f"Hasil tersimpan di: {os.path.abspath(env.OUTPUT_FILE)}")
+nodes_df.to_csv(env.RETRAINED_OUTPUT_FILE , index=False)
+
+claims_cols = [
+    'node_id', 'tarif_seharusnya', 
+    'fraud_type', 'tarif_diklaim', 'catatan', 'lama_rawat', 
+    'is_fraud', 'status_klaim', 'id_klaim', 'name', 'fraud_certainty']
+claim_nodes = nodes_df[nodes_df['labels'].str.contains('Claim', na=False)]
+claim_nodes.to_csv(env.RESULTS_CLAIMS_FILE, columns=claims_cols, index=False)
+
+print(f"Hasil tersimpan di: {os.path.abspath(env.RESULTS_OUTPUT_FILE)}")

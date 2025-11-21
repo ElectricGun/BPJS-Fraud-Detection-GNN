@@ -7,7 +7,7 @@ from config import env;
 graph = Graph(env.url, auth=(env.uname, env.pw)) 
 
 # File hasil training GNN terakhir
-CSV_PATH = env.OUTPUT_FILE
+CSV_PATH = env.RETRAINED_OUTPUT_FILE
 
 print("Membaca file hasil prediksi...")
 df = pd.read_csv(CSV_PATH)
