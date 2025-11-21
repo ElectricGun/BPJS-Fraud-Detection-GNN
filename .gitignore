@@ -8,8 +8,8 @@ gnn_env/
 
 # Data generated
 data/processed/
-data/exports/
-*.csv
+data/gnn_processed/
+/output/
 *.json
 
 # Neo4j artifacts
@@ -29,3 +29,6 @@ gnn_model/checkpoints/
 
 # System files
 .DS_Store
+
+
+output/.~lock*
