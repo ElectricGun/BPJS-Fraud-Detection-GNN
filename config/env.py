@@ -21,7 +21,7 @@ EDGES_CSV = "./data/processed/edges.csv"
 BEST_GNN_HYBRID_PATH = "./output/best_hybrid_gnn.pth"
 
 RETRAINED_OUTPUT_FILE = "./output/gnn_retrained_output.csv"
-RESULTS_OUTPUT_FILE = "./output/results.csv"
+# RESULTS_OUTPUT_FILE = "./output/results.csv"
 RESULTS_CLAIMS_FILE = "./output/claims.csv"
 
 # ======================
@@ -29,5 +29,5 @@ RESULTS_CLAIMS_FILE = "./output/claims.csv"
 # ======================
 
 TEST_SIZE = 0.3
-SKIP_GNN_TRAINING = False
+SKIP_GNN_TRAINING = True
 # SKIP_GNN_TRAINING = True

@@ -256,4 +256,4 @@ claims_cols = [
     'fraud_type', 'tarif_diklaim', 'catatan', 'lama_rawat', 
     'is_fraud', 'status_klaim', 'id_klaim', 'fraud_certainty', 'predicted_fraud']
 claim_nodes.to_csv(env.RESULTS_CLAIMS_FILE, columns=claims_cols, index=False)
-print(f"Hasil tersimpan di: {os.path.abspath(env.RESULTS_OUTPUT_FILE)}")
+print(f"Hasil tersimpan di: {os.path.abspath(env.RETRAINED_OUTPUT_FILE)}")
