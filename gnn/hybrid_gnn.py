@@ -205,7 +205,6 @@ def run():
                         best_auc = auc
                         patience_counter = 0
                         torch.save(model.state_dict(), env.BEST_GNN_HYBRID_PATH)
-                        model_saved = True
                     else:
                         patience_counter += 1
                         
@@ -235,22 +234,15 @@ def run():
     os.makedirs("output", exist_ok=True)
     nodes_df.to_csv(env.RETRAINED_OUTPUT_FILE , index=False)
 
-
     claim_nodes = nodes_df[nodes_df['labels'].str.contains('Claim', na=False)]
 
-    valid = nodes_df[['is_fraud', 'fraud_certainty']].dropna()
-    pred_labels = np.round(valid['fraud_certainty'].values) # type: ignore
-
     # Boolean column (True/False)
-    # claim_nodes['predicted_fraud'] = claim_nodes['fraud_certainty'] > env.CERTAINTY_TRESHOLD
-    # claim_nodes['predicted_fraud'] = claim_nodes['predicted_fraud'].astype(int)
     claim_nodes = nodes_df[nodes_df['labels'].str.contains("Claim")].copy()
     claim_nodes['predicted_fraud'] = np.round(claim_nodes['fraud_certainty']).astype(int)
     claim_nodes[['fraud_certainty', 'predicted_fraud']].head() # type: ignore
 
     accuracy = (claim_nodes['predicted_fraud'] == claim_nodes['is_fraud']).mean()
     print(f"Accuracy: {accuracy:.4f}")
-
 
     claims_cols = [
         'node_id', 'tarif_seharusnya', 

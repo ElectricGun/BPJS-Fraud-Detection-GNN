@@ -164,6 +164,7 @@ if __name__ == "__main__":
         except KeyboardInterrupt:
             try:
                 if (input("\n\nExit? (Y/n): ").lower() == "n"):
+                    clear_terminal()
                     continue
                 else:
                     sys.exit()
