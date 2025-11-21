@@ -42,7 +42,7 @@
 ## 📑 **Table of Contents**
 
 * [✨ Features](#-features)
-* [🏗️ Architecture](#️-architecture)
+* [🏗️ Architecture](#️-architecture--pipeline)
 * [⚙️ Setup Environment](#️-setup-environment)
 * [📥 Data Loading (ETL)](#-data-loading-etl)
 * [🧠 Graph Projection + Louvain](#-graph-projection--louvain)
@@ -131,12 +131,13 @@ pip install -r requirements.txt
 
 Library inti:
 
-* `neo4j`
-* `pandas`, `numpy`
-* `networkx`
-* `torch`, `pyg` (PyTorch Geometric)
-* `matplotlib`
-
+* `pandas`
+* `py2neo`
+* `torch`
+* `scikit-learn`
+* `torch-geometric`
+* `xgboost`
+* `node2vec`
 ---
 
 # 🏗️ 4. Neo4j Setup
@@ -148,25 +149,17 @@ Download: [https://neo4j.com/download/](https://neo4j.com/download/)
 Setelah instalasi:
 
 1. Buat database baru
-2. Gunakan password: `neo4j` (atau custom)
+2. Username & password default:
+  * neo4j
+  * neo4j123
 3. Jalankan database
 
 ## 4.2 Import Data
 
-Gunakan file `etl/claims.csv`, `etl/providers.csv`, dll.
-
-Contoh import (Neo4j Browser):
-
-```cypher
-LOAD CSV WITH HEADERS FROM 'file:///claims.csv' AS row
-CREATE (:Claim {
-    claim_id: row.claim_id,
-    amount: toFloat(row.amount),
-    date: row.date
-});
+Jalankan command di working directory:
 ```
-
----
+python -m etl.load
+```
 
 # 🔗 5. Graph Model Design
 
