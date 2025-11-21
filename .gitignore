@@ -29,3 +29,6 @@ gnn_model/checkpoints/
 
 # System files
 .DS_Store
+
+
+output/.~lock*
