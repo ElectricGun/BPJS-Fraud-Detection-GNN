@@ -134,23 +134,24 @@ if __name__ == "__main__":
             ██║░░╚██╗██╔══██╗██╔══██║██╔══╝░░██╔══██║██║╚████║██╔══██║
             ╚██████╔╝██║░░██║██║░░██║██║░░░░░██║░░██║██║░╚███║██║░░██║
             ░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝
-
-
-
-
-        Connected to Neo4j
-            url: {env.url}
-            uname: {env.uname}
-            password: HIDDEN
-                
-        Data Variables
-            raw_input_data: {env.raw_input_data}
-                - The input CSV data
-            test_size: {env.test_size}
-                - The testing data ratio for train-test splitting on training epochs
-            skip_gnn_training: {env.skip_gnn_training}
-                - Do not train if true. Use existing model instead on {env.BEST_GNN_HYBRID_PATH} if exists.
             
+            Licensed under the terms in LICENSE (MIT)
+
+
+
+    Connected to Neo4j
+        url: {env.url}
+        uname: {env.uname}
+        password: HIDDEN
+            
+    Data Variables
+        raw_input_data: {env.raw_input_data}
+            - The input CSV data
+        test_size: {env.test_size}
+            - The testing data ratio for train-test splitting on training epochs
+        skip_gnn_training: {env.skip_gnn_training}
+            - Do not train if true. Use existing model instead on {env.BEST_GNN_HYBRID_PATH} if exists.
+        
             
             """)
 
