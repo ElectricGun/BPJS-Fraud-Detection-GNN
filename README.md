@@ -184,9 +184,9 @@ flowchart TB
 <table width="100%">
   <tr>
     <td width="50%" align="center" valign="top">
-      <h3>🖥️ CLI Interface</h3>
+      <h3>🖥️ Neo4j Interface</h3>
       <p><b>Terminal-Based Development</b></p>
-      <img src="img/cli_demo.gif" alt="CLI Interface Demo" width="100%" style="border-radius: 5px;">
+      <img src="img/vid1.gif" alt="CLI Interface Demo" width="100%" style="border-radius: 5px;">
       <br/><br/>
       <p>
         <b>🚀 Advanced Terminal Experience</b><br>
