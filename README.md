@@ -126,7 +126,7 @@ flowchart TD
     RESULT --> UPDATE_DB[Update Neo4j Properties]
     UPDATE_DB --> BLOOM[Neo4j Bloom Visualization]
 
-```
+
 
 ## 📊 Neo4j Bloom Visualization Results
 
