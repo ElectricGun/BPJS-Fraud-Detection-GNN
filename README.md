@@ -95,46 +95,37 @@
 ---
 
 ## 🏗️ Architecture & Pipeline
-
-```mermaid
+```
 flowchart TD
-    %% ============================
-    %%      DATA INGESTION
-    %% ============================
-    DATA[📄 Raw Claims CSV] -->|ETL: load_data.py| NEO4J[(🍃 Neo4j Database)]
 
-    %% ============================
-    %%   GRAPH DATA SCIENCE (GDS)
-    %% ============================
-    NEO4J -->|Graph Projection| GDS[⚙️ Neo4j GDS Library]
+    %% Data Ingestion
+    DATA([Raw Claims CSV]) -->|ETL Load| NEO4J[(Neo4j Database)]
+
+    %% Graph Data Science
+    NEO4J -->|Graph Projection| GDS[Neo4j GDS]
     GDS -->|Community Detection| LOUVAIN[Louvain Algorithm]
     GDS -->|Structural Embedding| N2V[Node2Vec]
 
-    %% ============================
-    %%        AI MODELING
-    %% ============================
-    subgraph AI_Core [🧠 Hybrid AI Engine]
-        LOUVAIN -->|Export Features| HYBRID[Hybrid GNN Model]
-        N2V -->|Node Embeddings| HYBRID
-        HYBRID -->|GraphSAGE + GAT| EMBED[Node Embeddings]
-        EMBED -->|Ensemble| XGB[XGBoost Classifier]
+    %% AI Hybrid Core
+    subgraph AI_Core [Hybrid AI Engine]
+        LOUVAIN --> HYBRID[Hybrid GNN Model]
+        N2V --> HYBRID
+        HYBRID --> EMBED[Node Embeddings]
+        EMBED --> XGB[XGBoost Classifier]
     end
 
-    %% ============================
-    %%     POST-PROCESSING PIPELINE
-    %% ============================
-    XGB -->|Raw Predictions| GNN_OUT[📄 GNN Output CSV]
+    %% Post-processing
+    XGB --> GNN_OUT[GNN Output CSV]
 
-    DATA -.->|Input 1: Original Data| MERGE
-    GNN_OUT -->|Input 2: Probabilities| MERGE[🛠️ Robust Merge Pipeline<br/>(utils/merge_pipeline.py)]
+    DATA -.-> MERGE
+    GNN_OUT --> MERGE[Merge Pipeline Utils]
 
-    MERGE -->|Safe Left-Join & Filtering| RESULT[📊 FINAL FRAUD REPORT]
+    MERGE --> RESULT[Final Fraud Report]
 
-    %% ============================
-    %%     WRITE-BACK & VISUALIZATION
-    %% ============================
-    RESULT -->|Update Properties (update_db.py)| NEO4J
-    NEO4J -->|Rule-Based Styling| BLOOM[🌸 Neo4j Bloom<br/>(Visualization Dashboard)]
+    %% Writeback & Visualization
+    RESULT --> UPDATE_DB[Update Neo4j Properties]
+    UPDATE_DB --> BLOOM[Neo4j Bloom Visualization]
+
 ```
 
 ## 📊 Neo4j Bloom Visualization Results
