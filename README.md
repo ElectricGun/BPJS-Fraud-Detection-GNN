@@ -179,7 +179,7 @@ flowchart TB
 
 ---
 
-<h2 align="center">💻 Interface Showcase</h2>
+<h2 align="center">💻 Interface Showcase 💻</h2>
 
 <table width="100%">
   <tr>
@@ -190,10 +190,10 @@ flowchart TB
       <br/><br/>
       <p align="left">
         <b>🔍 Deep Forensic Investigation</b><br>
-        ⚡ <b>Visual Relationship Mapping:</b> Trace connections between <code>Claim</code>, <code>Patient</code>, and <code>Diagnosis</code> instantly.<br>
-        🏷️ <b>Risk Indicators:</b> Auto-identification of <span style="color:#36D399"><b>FraudSuspect</b></span> and <span style="color:#A5D8FF"><b>Mismatch</b></span> nodes.<br>
-        📊 <b>Live Schema Overview:</b> Real-time statistics of Nodes (67) & Relationships (100) in the active scene.<br>
-        <i>Powerful visual interface for detecting complex fraud rings and anomalies via Cypher queries.</i>
+        ⚡ <b>Visual Relationship Mapping <br>
+        🏷️ <b>Risk Indicator <br>
+        📊 <b>Live Schema Overview <br>
+        <i>Antarmuka visual yang canggih untuk mendeteksi jaringan fraud dan anomali yang kompleks melalui kueri Cypher.</i>
       </p>
     </td>
     <td width="50%" align="center" valign="top">
