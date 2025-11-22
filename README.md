@@ -179,6 +179,46 @@ flowchart TB
 
 ---
 
+<h2 align="center">💻 Interface Showcase</h2>
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="center" valign="top">
+      <h3>🖥️ CLI Interface</h3>
+      <p><b>Terminal-Based Development</b></p>
+      
+      <img src="img/cli_demo.gif" alt="CLI Interface Demo" width="100%" style="border-radius: 5px;">
+      
+      <br/><br/>
+      <p>
+        <b>🚀 Advanced Terminal Experience</b><br>
+        ⚡ Fast command-line workflow<br>
+        🔧 Developer-friendly interface<br>
+        📊 Real-time progress tracking<br>
+        <i>Professional terminal interface for advanced users and CI/CD integration</i>
+      </p>
+    </td>
+
+    <td width="50%" align="center" valign="top">
+      <h3>🌐 Web Interface</h3>
+      <p><b>Visual Interactive Experience</b></p>
+      
+      <img src="img/web_demo.gif" alt="Web Interface Demo" width="100%" style="border-radius: 5px;">
+      
+      <br/><br/>
+      <p>
+        <b>🎨 Modern Web Dashboard</b><br>
+        🖱️ Intuitive drag-and-drop<br>
+        📱 Responsive design<br>
+        🎯 Visual progress tracking<br>
+        <i>Beautiful web interface with streamlined workflow for all skill levels</i>
+      </p>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 🧱 1. System Requirements
 
 * Python ≥ 3.10
