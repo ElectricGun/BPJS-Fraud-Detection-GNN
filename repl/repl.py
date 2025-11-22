@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
 
 
-    Connected to Neo4j
+    Neo4j Credentials
         url: {env.url}
         uname: {env.uname}
         password: HIDDEN
