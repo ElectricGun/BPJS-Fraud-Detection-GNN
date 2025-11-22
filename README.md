@@ -186,14 +186,14 @@ flowchart TB
     <td width="50%" align="center" valign="top">
       <h3>🖥️ Neo4j Interface</h3>
       <p><b>Terminal-Based Development</b></p>
-      <img src="img/vid1.gif" alt="CLI Interface Demo" width="100%" style="border-radius: 5px;">
+      <img src="vid/vid1.gif" alt="CLI Interface Demo" width="100%" style="border-radius: 5px;">
       <br/><br/>
       <p>
-        <b>🚀 Advanced Terminal Experience</b><br>
-        ⚡ Fast command-line workflow<br>
-        🔧 Developer-friendly interface<br>
-        📊 Real-time progress tracking<br>
-        <i>Professional terminal interface for advanced users and CI/CD integration</i>
+        <b>🔍 Deep Forensic Investigation</b><br>
+        ⚡ <b>Visual Relationship Mapping:</b> Trace connections between <code>Claim</code>, <code>Patient</code>, and <code>Diagnosis</code> instantly.<br>
+        🏷️ <b>Risk Indicators:</b> Auto-identification of <span style="color:#36D399"><b>FraudSuspect</b></span> and <span style="color:#A5D8FF"><b>Mismatch</b></span> nodes.<br>
+        📊 <b>Live Schema Overview:</b> Real-time statistics of Nodes (67) & Relationships (100) in the active scene.<br>
+        <i>Powerful visual interface for detecting complex fraud rings and anomalies via Cypher queries.</i>
       </p>
     </td>
     <td width="50%" align="center" valign="top">
