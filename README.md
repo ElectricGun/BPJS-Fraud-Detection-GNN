@@ -47,11 +47,11 @@
         <img src="img/display.png" alt="Fraud Model" width="100%">
       </div>
       <p align="center">
-        Memperlihatkan hubungan antar entitas dalam visualisasi graf
-        🔵 Biru (Claim)
-        🟤 Krem / Cokelat Muda (Patient)
-        🟠 Oranye (Diagnosis)
-        🟣 Ungu (Procedure)
+        Memperlihatkan hubungan antar entitas dalam visualisasi graf <br>
+        🔵 Biru (Claim)<br>
+        🟤 Krem / Cokelat Muda (Patient) <br>
+        🟠 Oranye (Diagnosis) <br>
+        🟣 Ungu (Procedure) <br>
         🟢 Hijau (CareClass & ServiceType)
       </p>
     </td>
