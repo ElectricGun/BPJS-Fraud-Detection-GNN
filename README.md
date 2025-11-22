@@ -34,9 +34,11 @@
 <div align="center" style="width: 100%; height: 2px; margin: 20px 0; background: linear-gradient(90deg, transparent, #00d9ff, transparent);"></div>
 </div>
 
+
 > **GRAFANA** (Graph Fraud Analytics) adalah sistem deteksi fraud cerdas yang menggabungkan kekuatan **Neo4j Graph Database** dengan arsitektur Deep Learning **GNN** dan klasifikasi komunitas **Louvain**.
 >
 > Sistem ini tidak hanya memetakan hubungan pasien-klaim, tetapi juga mempelajari pola struktural (embedding) untuk memprediksi anomali dengan akurasi tinggi, divisualisasikan langsung melalui **Neo4j Bloom**.
+
 ---
 
 <table>
@@ -57,6 +59,8 @@
     </td>
   </tr>
 </table>
+
+---
 
 ## 📑 **Table of Contents**
 
@@ -126,6 +130,7 @@ flowchart TB
 
 
 ```
+---
 
 ## 📊 Neo4j Bloom Visualization Results
 
