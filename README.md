@@ -39,6 +39,25 @@
 > Sistem ini tidak hanya memetakan hubungan pasien-klaim, tetapi juga mempelajari pola struktural (embedding) untuk memprediksi anomali dengan akurasi tinggi, divisualisasikan langsung melalui **Neo4j Bloom**.
 ---
 
+<table>
+  <tr>
+    <td width="50%">
+      <h3 align="center"> Visualisasi Graf Pada Neo4j </h3>
+      <div align="center">
+        <img src="img/display.png" alt="Fraud Model" width="100%">
+      </div>
+      <p align="center">
+        Memperlihatkan hubungan antar entitas dalam visualisasi graf
+        🔵 Biru (Claim)
+        🟤 Krem / Cokelat Muda (Patient)
+        🟠 Oranye (Diagnosis)
+        🟣 Ungu (Procedure)
+        🟢 Hijau (CareClass & ServiceType)
+      </p>
+    </td>
+  </tr>
+</table>
+
 ## 📑 **Table of Contents**
 
 * [✨ Features](#-features)
@@ -101,8 +120,6 @@ flowchart TD
 ```
 
 ## 📊 Neo4j Bloom Visualization Results
-
-Berikut adalah hasil visualisasi graf berdasarkan prediksi model GNN menggunakan **Rule-Based Styling** di Neo4j Bloom.
 
 <table>
   <tr>
