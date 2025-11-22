@@ -1,4 +1,6 @@
 import sys
+
+from joblib.memory import traceback
 from gnn import hybrid_gnn, update_db
 from louvain import louvain
 from etl import load
@@ -6,6 +8,8 @@ from etl import export
 from config import env
 from getpass import getpass
 import os
+
+from utils import merge_pipeline
 
 class Menu:
     def __init__(self, name, text, runner):
@@ -65,6 +69,7 @@ def run_main_menu(arg):
         elif (arg == "5"):
             hybrid_gnn.run()
             update_db.run()
+            merge_pipeline.retrieve_data_to_csv()
             
             input(etc)
 
@@ -106,7 +111,9 @@ def run_main_menu(arg):
             print("Invalid Input!")
     
     except Exception as e:
-        print(e)
+        print("ERROR")
+        print(traceback.format_exc())
+
         input(etc)
 main_menu = Menu("Main Menu", 
     f"""
